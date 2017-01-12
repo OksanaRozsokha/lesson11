@@ -271,6 +271,8 @@ a.app-icon {
     border-radius: 50%;
     -webkit-border-radius: 50%;
     text-indent: -9999px;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
 }
 .sound-btn {
     position: absolute;
@@ -302,10 +304,15 @@ a.app-icon {
     right: 21%;
     background: #e7e7e7 url("../img/interface-icon.png") 50% 50% no-repeat;
 }
-.active {
-    width: 85px;
-    height: 85px;
+.icons-list button.active,
+.icons-list button:hover {
+    /*width: 85px;*/
+    /*height: 85px;*/
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
     background-color: #2ecc71;
+    border: 5px solid #fff;
+    -webkit-box-shadow: 0 0 60px rgba(15, 65, 36, 0.15);
     box-shadow: 0 0 60px rgba(15, 65, 36, 0.15);
 }
 .text-block {
@@ -334,6 +341,9 @@ a.app-icon {
 .text-list li {
     margin-bottom: 20px;
     display: none;
+}
+.text-list li.active {
+    display: block;
 }
 
 /*--------------------------PLAN DIET SECTION-------------------------*/

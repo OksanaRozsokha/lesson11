@@ -8,32 +8,34 @@ $(document).ready(function () {
         popup.fadeOut();
     });
     //
+
     //clickable icons
-    $('.sound-btn').on('click', function () {
-        $('#first-item').slideToggle();
+
+$('.icons-list button').each(function(i){
+        $(this).attr('data-tab', 'tab'+i);
     });
-    $('.calendar-btn').on('click', function () {
-        $('#second-item').slideToggle();
+    $('.text-list li').each(function(i){
+        $(this).attr('data-tab', 'tab'+i);
     });
-    $('.growth-btn').on('click', function () {
-        $('#third-item').slideToggle();
-    });
-    $('.like-btn').on('click', function () {
-       $('#fourths-item').slideToggle();
-    });
-    $('.interface-btn').on('click', function () {
-        $('#fifths-item').slideToggle();
-    });
-    //
-    $(function() {
-        $('.text-btn').click(function () {
-            $(this).toggleClass('active');
-        });
+    $('.icons-list button').on('click',function () {
+        var dataTab = $(this).data('tab');
+        var getWrapper = $(this).closest('.tab-wrapper');
+
+        getWrapper.find('.icons-list button').removeClass('active');
+        $(this).addClass('active');
+
+        getWrapper.find('.text-list > li').removeClass('active');
+        getWrapper.find('.text-list > li[data-tab='+dataTab+']').addClass('active');
+
     });
     //
+
     //menu
     $('.menu-btn').on('click', function () {
         $('.menu-list').slideToggle();
     });
+    // $(window).on('scroll',function () {
+    //     $('.menu-list').hide();
+    // });
     //
 });
